@@ -19,11 +19,12 @@ add_action('admin_enqueue_scripts', 'admin_styles');
  *
  * @return {void}.
  */
-function admin_styles() {
-  wp_enqueue_style('admin-styles', plugin_dir_url(__FILE__) . '/admin.css');
+function admin_styles()
+{
+    wp_enqueue_style('admin-styles', plugin_dir_url(__FILE__) . '/admin.css');
 }
 
- add_action( 'wp_enqueue_scripts', 'omnigo_assets' );
+ add_action('wp_enqueue_scripts', 'omnigo_assets');
 /**
  * Load Omnigo Assets.
  *
@@ -31,11 +32,12 @@ function admin_styles() {
  *
  * @return {void}.
  */
-function omnigo_assets() {
-    wp_enqueue_script( 'omnigo-client', plugins_url( '/js/omnigo.js' , __FILE__ ) );
+function omnigo_assets()
+{
+    wp_enqueue_script('omnigo-client', plugins_url('/js/omnigo.js', __FILE__));
 }
 
-add_action( 'wp_enqueue_scripts', 'omnigo_load' );
+add_action('wp_enqueue_scripts', 'omnigo_load');
 /**
  * Initialize embed code options.
  *
@@ -43,23 +45,24 @@ add_action( 'wp_enqueue_scripts', 'omnigo_load' );
  *
  * @return {void}.
  */
-function omnigo_load() {
+function omnigo_load()
+{
 
   // Get our site options for site url and token.
-  $omnigo_url = get_option('omnigoSiteURL');
-  $omnigo_token = get_option('omnigoSiteToken');
-  $omnigo_widget_locale = get_option('omnigoWidgetLocale');
-  $omnigo_widget_type = get_option('omnigoWidgetType');
-  $omnigo_widget_position = get_option('omnigoWidgetPosition');
-  $omnigo_launcher_text = get_option('omnigoLauncherText');
+    $omnigo_url = get_option('omnigoSiteURL');
+    $omnigo_token = get_option('omnigoSiteToken');
+    $omnigo_widget_locale = get_option('omnigoWidgetLocale');
+    $omnigo_widget_type = get_option('omnigoWidgetType');
+    $omnigo_widget_position = get_option('omnigoWidgetPosition');
+    $omnigo_launcher_text = get_option('omnigoLauncherText');
 
-  // Localize our variables for the Javascript embed code.
-  wp_localize_script('omnigo-client', 'omnigo_token', $omnigo_token);
-  wp_localize_script('omnigo-client', 'omnigo_url', $omnigo_url);
-  wp_localize_script('omnigo-client', 'omnigo_widget_locale', $omnigo_widget_locale);
-  wp_localize_script('omnigo-client', 'omnigo_widget_type', $omnigo_widget_type);
-  wp_localize_script('omnigo-client', 'omnigo_launcher_text', $omnigo_launcher_text);
-  wp_localize_script('omnigo-client', 'omnigo_widget_position', $omnigo_widget_position);
+    // Localize our variables for the Javascript embed code.
+    wp_localize_script('omnigo-client', 'omnigo_token', $omnigo_token);
+    wp_localize_script('omnigo-client', 'omnigo_url', $omnigo_url);
+    wp_localize_script('omnigo-client', 'omnigo_widget_locale', $omnigo_widget_locale);
+    wp_localize_script('omnigo-client', 'omnigo_widget_type', $omnigo_widget_type);
+    wp_localize_script('omnigo-client', 'omnigo_launcher_text', $omnigo_launcher_text);
+    wp_localize_script('omnigo-client', 'omnigo_widget_position', $omnigo_widget_position);
 }
 
 add_action('admin_menu', 'omnigo_setup_menu');
@@ -70,11 +73,12 @@ add_action('admin_menu', 'omnigo_setup_menu');
  *
  * @return {void}.
  */
-function omnigo_setup_menu(){
+function omnigo_setup_menu()
+{
     add_options_page('Option', 'Omnigo Settings', 'manage_options', 'omnigo-plugin-options', 'omnigo_options_page');
 }
 
-add_action( 'admin_init', 'omnigo_register_settings' );
+add_action('admin_init', 'omnigo_register_settings');
 /**
  * Register Settings.
  *
@@ -82,20 +86,21 @@ add_action( 'admin_init', 'omnigo_register_settings' );
  *
  * @return {void}.
  */
-function omnigo_register_settings() {
-  add_option('omnigoSiteToken', '');
-  add_option('omnigoSiteURL', '');
-  add_option('omnigoWidgetLocale', 'en');
-  add_option('omnigoWidgetType', 'standard');
-  add_option('omnigoWidgetPosition', 'right');
-  add_option('omnigoLauncherText', '');
+function omnigo_register_settings()
+{
+    add_option('omnigoSiteToken', '');
+    add_option('omnigoSiteURL', '');
+    add_option('omnigoWidgetLocale', 'en');
+    add_option('omnigoWidgetType', 'standard');
+    add_option('omnigoWidgetPosition', 'right');
+    add_option('omnigoLauncherText', '');
 
-  register_setting('omnigo-plugin-options', 'omnigoSiteToken' );
-  register_setting('omnigo-plugin-options', 'omnigoSiteURL');
-  register_setting('omnigo-plugin-options', 'omnigoWidgetLocale' );
-  register_setting('omnigo-plugin-options', 'omnigoWidgetType' );
-  register_setting('omnigo-plugin-options', 'omnigoWidgetPosition' );
-  register_setting('omnigo-plugin-options', 'omnigoLauncherText' );
+    register_setting('omnigo-plugin-options', 'omnigoSiteToken');
+    register_setting('omnigo-plugin-options', 'omnigoSiteURL');
+    register_setting('omnigo-plugin-options', 'omnigoWidgetLocale');
+    register_setting('omnigo-plugin-options', 'omnigoWidgetType');
+    register_setting('omnigo-plugin-options', 'omnigoWidgetPosition');
+    register_setting('omnigo-plugin-options', 'omnigoLauncherText');
 }
 
 /**
@@ -105,8 +110,9 @@ function omnigo_register_settings() {
  *
  * @return {void}.
  */
-function omnigo_options_page() {
-  ?>
+function omnigo_options_page()
+{
+    ?>
   <div>
     <h2>Omnigo Settings</h2>
     <form method="post" action="options.php" class="omnigo--form">

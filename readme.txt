@@ -1,5 +1,5 @@
 === Omnigo Plugin ===
-Contributors: antpb, omnigoengineering
+Contributors: heerrr
 Tags: chat, live-chat, support, chat-support, customer-support, customer-engagement
 Requires at least: 4.5
 Tested up to: 5.8
@@ -22,24 +22,8 @@ This plugin allows you to add a Omnigo live-chat widget on every page of your Wo
 
 1. Do I need an account at Omnigo to use this plugin?
 
-You need an account at a self-hosted Omnigo or Omnigo Cloud (https://app.omnigo.id) to use this plugin. You need to create a website inbox and share the credentials for the plugin to work.
+You need an account at Omnigo Account (https://omnigo.id) to use this plugin. You need to create a livechat inbox and share the credentials for the plugin to work.
 
 2. Can I use the live-chat in different languages?
 
-Live-chat widget supports multiple languages, you can select
-
-== Changelog ==
-
-### 0.2.0 ###
-- Add options for customizing the plugin
-- Allow admin to select the locale from the settings panel.
-- Update the admin settings styles.
-
-### 0.1.0 ###
-- Initialize Plugin
-- Simple Embed based on Options saved
-
-== Upgrade Notice ==
-
-= 0.2.0 =
-While upgrading to 0.2.0, please make sure that the design options are set correctly.
+Livechat widget supports multiple languages, you can select

@@ -3,7 +3,7 @@
  * Plugin Name:     Omnigo Plugin
  * Plugin URI:      https://omnigo.id/
  * Description:     Omnigo Plugin for WordPress. This plugin helps you to quickly integrate Omnigo live-chat widget on Wordpress websites.
- * Author:          antpb
+ * Author:          heerrr
  * Author URI:      omnigo.id
  * Text Domain:     omnigo-plugin
  * Version:         0.1
